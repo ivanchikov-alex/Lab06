@@ -74,12 +74,9 @@ namespace Lab06
     {
         static void Main(string[] args)
         {
-            Book book1 = new Book { BookName = "book1", PublisherName = "Publisher", Info = { Cost = 100, ReleaseYear = 2020 } };
-            Book book2 = new Book { BookName = "book2", PublisherName = "Publisher", Info = { Cost = 200, ReleaseYear = 2010 } };
-            Book book3 = new Book { BookName = "book3", PublisherName = "Publisher3", Info = { Cost = 500, ReleaseYear = 2015 } };
-            Manual manual1 = new Manual { ManualName = "manual1", PublisherName = "Publisher3", Info = { Cost = 80, ReleaseYear = 2018 } };
             LibInfo lib = new LibInfo();
-            lib.AddLiterature(manual1); lib.AddLiterature(book1); lib.AddLiterature(book2); lib.AddLiterature(book3);
+            lib.FromTXT("LIBINFO.txt");
+            lib.BooksFromJSON("BOOKS.json");
 
             Console.WriteLine($"Количество учебников {lib.ManualsAmount()}");
             Console.WriteLine($"Цена всех печатных изданий {lib.TotalCost()}");
